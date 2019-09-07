@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  mariadb:
+    image: mariadb:10.3
+    ports:
+     - 3306:3306
+    environment:
+      MYSQL_DATABASE: laravel     
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+     - PMA_ARBITRARY=1
+     - PMA_HOST=mysql
+    restart: always
+    ports:
+     - 8080:80
+    volumes:
+     - pma:/sessions
+    depends_on:
+      - mysql
+volumes:
+  db:
+  pma:
