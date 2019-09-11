@@ -10,7 +10,9 @@
     <title>{{ config('app.name', 'Test recrutement Idesys') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"defer></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -77,4 +80,6 @@
         </main>
     </div>
 </body>
+@yield('javascript')
+<script src="{{ asset('js/myTable.js') }}" defer></script>
 </html>

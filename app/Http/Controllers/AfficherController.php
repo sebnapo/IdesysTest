@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\{Mandat, Membre};
 
-class HomeController extends Controller
+class AfficherController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,9 +24,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($id)
     {
-        $membres = Membre::all();
-        return view('home',["membres" => $membres]);
+        $membre = Membre::find($id);
+
+        return view('afficher',["membre" => $membre]);
     }
 }
